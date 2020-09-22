@@ -14,9 +14,9 @@ const addContact = createAction('contacts/add', ({ name, number }) => {
 
 const deleteContact = createAction('contacts/delete');
 const changeFilter = createAction('contacts/changeFilter');
-const setExistedContacts = createAction('contacts/setExistedContacts');
+// const setExistedContacts = createAction('contacts/setExistedContacts');
 
-export default { addContact, deleteContact, changeFilter, setExistedContacts };
+export default { addContact, deleteContact, changeFilter };
 
 // --------- BEFORE  Redux-Toolkit -----------------
 //

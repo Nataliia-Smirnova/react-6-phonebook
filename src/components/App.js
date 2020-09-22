@@ -1,6 +1,5 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
-import actions from '../redux/contacts/contacts-actions';
 import { connect } from 'react-redux';
 
 import Contacts from './contacts/Contacts';
@@ -15,13 +14,8 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    const lsContacts = localStorage.getItem('contacts');
-    if (lsContacts) {
-      const parsedContacts = JSON.parse(lsContacts);
-      this.props.setExistedContacts(parsedContacts);
-      if (parsedContacts.length > 1) {
-        this.setState({ isMounted: true });
-      }
+    if (this.props.items.length > 1) {
+      this.setState({ isMounted: true });
     }
 
     this.setState({ cMounted: true });
@@ -29,7 +23,6 @@ class App extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.items !== prevProps.items) {
-      localStorage.setItem('contacts', JSON.stringify(this.props.items));
       this.setState({ isMounted: false, cMounted: false });
     }
   }
@@ -64,10 +57,10 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setExistedContacts: contacts =>
-      dispatch(actions.setExistedContacts(contacts)),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     setExistedContacts: contacts =>
+//       dispatch(actions.setExistedContacts(contacts)),
+//   };
+// };
+export default connect(mapStateToProps)(App);
