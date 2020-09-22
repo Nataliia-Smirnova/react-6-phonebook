@@ -20,9 +20,9 @@ const changeFilter = value => ({
   payload: value,
 });
 
-const getFilteredContacts = contacts => ({
-  type: types.GET_FILTERED_CONTACTS,
-  payload: contacts,
+const setExistedContacts = value => ({
+  type: types.SET_EXISTED_CONTACTS,
+  payload: value,
 });
 
-export default { addContact, deleteContact, changeFilter, getFilteredContacts };
+export default { addContact, deleteContact, changeFilter, setExistedContacts };

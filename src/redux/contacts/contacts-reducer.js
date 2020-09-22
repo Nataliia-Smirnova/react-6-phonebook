@@ -9,6 +9,9 @@ const items = (state = [], { type, payload }) => {
     case types.DELETE:
       return state.filter(({ id }) => id !== payload);
 
+    case types.SET_EXISTED_CONTACTS:
+      return [...state, ...payload];
+
     default:
       return state;
   }

@@ -13,19 +13,6 @@ class Form extends React.Component {
     showInfo: false,
   };
 
-  // state = {
-  //   // contacts: [
-  //   //   // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-  //   //   // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-  //   //   // { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-  //   //   // { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-  //   // ],
-  //   // filter: '',
-
-  //   isMounted: false,
-  //   cMounted: false,
-  // };
-
   handleInputChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -34,10 +21,7 @@ class Form extends React.Component {
   handleFormSubmit = e => {
     e.preventDefault();
 
-    // this.props.onSubmit(this.state);
-
     const { name, number } = this.state;
-    // const contact = { id: uuidv4(), name, number };
     const sameContact = this.props.items.find(contact => contact.name === name);
 
     if (!name || !number) {
